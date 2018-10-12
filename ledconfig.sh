@@ -96,3 +96,42 @@ ledMenu() #this function
 		;;
 esac
 }
+
+
+
+eventsMenu()
+{
+	echo ""
+	echo $selectDir
+	echo "================================= "
+	echo "Available events are: "
+	echo "--------------------- "
+	
+	n=1
+	for word in $(< /sys/class/leds/$selectDir/trigger)
+	do
+	    	echo "$n) ${word}" | sed 's/\[//;s/\]/*/'
+		declare Line_$[n]=${word}
+	
+		n=$(( n+1 ))
+	done
+	
+	echo "$n) Quit to previous menu"
+	echo "Please select an option (1-$n):"
+	
+	read selection2
+	eval "selectEvent=\$Line_$selection2" 
+		
+	i=$(( $n-1 ))
+
+	if [ "$selection2" -lt 32 ]; then
+	  echo $selectEvent > /sys/class/leds/$selectDir/trigger
+	  eventsMenu
+	elif [ "$selection2" -eq 33 ]; then
+	  ledMenu
+	else
+	  echo "Error: Didn't enter a number from 1-$n. Please try again:"
+	  eventsMenu
+fi
+
+}
