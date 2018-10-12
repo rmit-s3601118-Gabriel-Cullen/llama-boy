@@ -49,3 +49,50 @@ mainMenu()
 		;;
 esac
 }
+
+
+
+ledMenu() #this function 
+{
+	eval "selectDir=\$File_$selection" 
+
+	
+	echo ""
+	echo $selectDir
+	echo "================="
+	echo "What would you like to do with this led?"
+	
+	echo "1) turn on"
+	echo "2) turn off"
+	echo "3) associate with a system event"
+	echo "4) associate with the performance of a process"
+	echo "5) stop association with a process’ performance"
+	echo "6) quit to main menu"
+	echo "Please enter a number (1-6) for for your choice:"
+	
+	read selection1
+	
+	case "$selection1" in 
+	1)
+		echo 1 > /sys/class/leds/$selectDir/brightness
+		ledMenu
+		;;
+	2)
+		echo 0 > /sys/class/leds/$selectDir/brightness
+		ledMenu
+		;;
+	3)	
+		eventsMenu
+		;;
+	4)
+		processPerformance
+		;;
+	6)
+		mainMenu
+		;;
+	*)
+		echo "Error: Didn't enter a number from 1-6. Please try again: "
+		ledMenu
+		;;
+esac
+}
