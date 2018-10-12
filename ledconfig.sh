@@ -135,3 +135,27 @@ eventsMenu()
 fi
 
 }
+
+
+processPerformance()
+{
+
+	echo ""
+	echo "Associate LED with the performance of a process"
+	echo "------------------------------------------------"
+	echo "Please enter the name of the program to monitor(partial names are ok):"
+
+	read programName
+
+	ps -ejH
+
+	echo "Do you wish to 1) monitor memory or 2) monitor cpu? [enter memory or cpu]: "
+	echo "starting to monitor ***process name here***"
+	
+
+#SIGKILL (terminates a process)
+}
+
+
+
+mainMenu
