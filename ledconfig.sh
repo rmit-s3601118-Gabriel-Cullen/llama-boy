@@ -51,7 +51,9 @@ esac
 }
 
 
-
+# This function displays the led menu
+# from this menu you can choose to turn the led on or off 
+# or choose to associate the led with a system event
 ledMenu() #this function 
 {
 	eval "selectDir=\$File_$selection" 
@@ -98,7 +100,8 @@ esac
 }
 
 
-
+# This function displays the events menu
+# from this menu you can choose a system event to associate the led with
 eventsMenu()
 {
 	echo ""
@@ -157,5 +160,5 @@ processPerformance()
 }
 
 
-
+# runs the main menu function
 mainMenu
