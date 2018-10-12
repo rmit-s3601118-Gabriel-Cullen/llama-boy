@@ -1,0 +1,23 @@
+commit 617f4a1e0276b3b4af23cbd349205f2ef473aae2
+Author: rmit-s3601118-Gabriel-Cullen <s3601118@student.rmit.edu.au>
+Date:   Fri Oct 12 23:28:13 2018 +1100
+
+    added processPerformance() function
+
+commit 2b085b4e679552cc5525caba1f80dd042ec5a609
+Author: rmit-s3601118-Gabriel-Cullen <s3601118@student.rmit.edu.au>
+Date:   Fri Oct 12 23:26:15 2018 +1100
+
+    added eventsMenu() function
+
+commit 191901e9aa96e96ca807064e04bb9cfe67827146
+Author: rmit-s3601118-Gabriel-Cullen <s3601118@student.rmit.edu.au>
+Date:   Fri Oct 12 23:24:21 2018 +1100
+
+    added ledMenu() function
+
+commit 46de6c55db11f88d091cd00d82151e1ea1edf3f3
+Author: rmit-s3601118-Gabriel-Cullen <s3601118@student.rmit.edu.au>
+Date:   Fri Oct 12 23:23:01 2018 +1100
+
+    deleted ledConfig.sh.txt and added ledConfig.sh
