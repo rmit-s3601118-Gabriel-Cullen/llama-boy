@@ -20,7 +20,7 @@ mainMenu()
 		#prints the name of each file inside /sys/class/leds folder
 	    	echo "$n. ""$(basename " $file")" 
 
-		#assigning file names to variables so they can be called in other parts of the code
+		#assigning file names to variables so they can be called from other functions
 		declare File_$[n]="$(basename " $file")" 
 		
 	n=$(( n+1 )) #increments $n 
@@ -113,10 +113,13 @@ eventsMenu()
 	n=1
 	for word in $(< /sys/class/leds/$selectDir/trigger)
 	do
+		# removes [] brackets from currently selected event and replaces them with * at the end of the word
 	    	echo "$n) ${word}" | sed 's/\[//;s/\]/*/'
+
+		# Assigning file names to variables so they can be called from other functions
 		declare Line_$[n]=${word}
 	
-		n=$(( n+1 ))
+		n=$(( n+1 )) #increments $n 
 	done
 	
 	echo "$n) Quit to previous menu"
@@ -124,9 +127,12 @@ eventsMenu()
 	
 	read selection2
 	eval "selectEvent=\$Line_$selection2" 
-		
-	i=$(( $n-1 ))
+	
+	
+	i=$(( $n-1 )) 
 
+	
+	#
 	if [ "$selection2" -lt 32 ]; then
 	  echo $selectEvent > /sys/class/leds/$selectDir/trigger
 	  eventsMenu
@@ -140,6 +146,7 @@ fi
 }
 
 
+# This function displays the process performance menu
 processPerformance()
 {
 
@@ -160,5 +167,5 @@ processPerformance()
 }
 
 
-# runs the main menu function
+# runs the main menu function when the code is executed
 mainMenu
