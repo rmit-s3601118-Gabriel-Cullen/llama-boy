@@ -103,7 +103,7 @@ esac
 
 
 # This function displays the events menu
-# from this menu you can choose a system event to associate the led with
+# from this menu you can choose a system event to associate with the selected led 
 eventsMenu()
 {
 	echo ""
