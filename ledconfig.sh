@@ -54,7 +54,7 @@ esac
 # This function displays the led menu
 # from this menu you can choose to turn the led on or off 
 # or choose to associate the led with a system event
-ledMenu() #this function 
+ledMenu()
 {
 	eval "selectDir=\$File_$selection" 
 
