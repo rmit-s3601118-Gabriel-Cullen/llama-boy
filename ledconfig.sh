@@ -1,6 +1,8 @@
 #! /bin/bash
 
 
+ledFile="/sys/class/leds"
+
 
 # This function displays the main menu
 # That is the menu that contains the names of all the leds that can be configured 
@@ -15,7 +17,7 @@ mainMenu()
 	n=1
 
 	#Searches through files in the /leds folder
-	for file in "/sys/class/leds"/*; 
+	for file in $ledFile/*; 
 	do
 		#prints the name of each file inside /sys/class/leds folder
 	    	echo "$n. ""$(basename " $file")" 
